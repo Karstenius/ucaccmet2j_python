@@ -76,6 +76,13 @@ total_precip_D = sum(count_D)
 total_precip_M = sum(count_M)
 total_precip_S = sum(count_S)
 
-print(total_precip = [total_precip_C, total_precip_S, total_precip_D, total_precip_M])
+precip = [total_precip_C, total_precip_S, total_precip_D, total_precip_M]
+total_precip = sum(precip)
 
-# print(f'The total precipitation in Seattle in 2010 was {total_precip} in tenths of ml.')
+print(f'The total precipitation in the four cities (Seattle, Cincinnati, Maui, and San Diego) in 2010 was {total_precip} in tenths of ml.')
+
+# Relative of Seattle compared to other cities
+
+percentage_Seattle = total_precip_S / total_precip * 100
+
+print(f'{percentage_Seattle} per cent of the rain in the four cities fell in Seattle.')

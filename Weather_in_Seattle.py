@@ -35,7 +35,7 @@ for measurement in rain_data:
 # Part 1.4: Save to a JSON file
 
 months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-rain_month = dict(zip(count, months))
+rain_month = dict(zip(months, count))
 
 with open('rain_Seattle.json', 'w') as file:
     json.dump(rain_month, file, indent=4)
@@ -52,8 +52,18 @@ monthly_percent = []
 for number in count:
     monthly_percent.append(number / total_precip * 100)
 
-percantage_month = dict(zip(monthly_percent, months))
+percantage_month = dict(zip(months, monthly_percent))
 
 with open('rain_percentage_Seattle.json', 'w') as file:
     json.dump(percantage_month, file, indent=4)
 
+# Complete JSON file
+
+result = {
+    'Percipitation': rain_month,
+    'Relative': percantage_month, 
+    'Total': total_precip
+}
+
+with open('Seattle_complete.json', 'w') as file:
+    json.dump(result, file, indent=4)
